@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>All Fees</title>
+</head>
+<body>
+
+<h2>All Fee Records</h2>
+
+<a href="/fees-ui/generate">Generate New Fee</a><br><br>
+
+<table border="1">
+    <tr>
+        <th>Fee ID</th>
+        <th>Date</th>
+        <th>Order ID</th>
+        <th>Order Amount</th>
+        <th>Fee Amount</th>
+        <th>Fee Type</th>
+    </tr>
+
+    <tr th:each="f : ${fees}">
+        <td th:text="${f.feeId}"></td>
+        <td th:text="${f.date}"></td>
+        <td th:text="${f.orderId}"></td>
+        <td th:text="${f.orderAmount}"></td>
+        <td th:text="${f.feeAmount}"></td>
+        <td th:text="${f.feeType}"></td>
+    </tr>
+</table>
+
+<br>
+<a href="/">Back</a>
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="Application/AcctMgmt/src/main/java"/>
+	<classpathentry kind="src" path="Application/AcctMgmt/src/test/java"/>
+	<classpathentry kind="src" path="Application/FeeMgmt/src/main/java"/>
+	<classpathentry kind="src" path="Application/FeeMgmt/src/test/java"/>
+	<classpathentry kind="src" path="Application/MarketMgmt/src/main/java"/>
+	<classpathentry kind="src" path="Application/MarketMgmt/src/test/java"/>
+	<classpathentry kind="src" path="Application/OrderMgt/src/main/java"/>
+	<classpathentry kind="src" path="Application/OrderMgt/src/test/java/com/example/ordermgt"/>
+	<classpathentry kind="output" path="Application/FeeMgmt/target/classes"/>
+</classpath>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Account Transaction Result</title>
+</head>
+<body>
+
+<h2>Account Transaction Created</h2>
+
+<p><b>Transaction ID:</b> <span th:text="${tx.transactionId}"></span></p>
+<p><b>Order ID:</b> <span th:text="${tx.orderId}"></span></p>
+<p><b>Date:</b> <span th:text="${tx.date}"></span></p>
+<p><b>Stock Quote:</b> <span th:text="${tx.stockQuote}"></span></p>
+<p><b>Price:</b> <span th:text="${tx.price}"></span></p>
+<p><b>Quantity:</b> <span th:text="${tx.quantity}"></span></p>
+<p><b>Total Amount:</b> <span th:text="${tx.totalAmount}"></span></p>
+<p><b>Transaction Type:</b> <span th:text="${tx.transactionType}"></span></p>
+
+<br>
+<a href="/acct-ui/generate">Generate Another Transaction</a><br><br>
+<a href="/acct-ui/all">View All Transactions</a><br><br>
+<a href="/">Back Home</a>
+
+</body>
+</html>

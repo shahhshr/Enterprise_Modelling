@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Update Order</title>
+</head>
+<body>
+
+<h2>Update Order</h2>
+
+<form th:action="@{/update}" th:object="${order}" method="post">
+
+    <input type="hidden" th:field="*{orderId}" />
+
+    Date: <input type="text" th:field="*{date}" /><br><br>
+    Stock: <input type="text" th:field="*{stockQuote}" /><br><br>
+    Price: <input type="number" th:field="*{price}" /><br><br>
+    Quantity: <input type="number" th:field="*{quantity}" /><br><br>
+
+    <button type="submit">Update</button>
+
+</form>
+
+<br>
+<a href="/orders">Back</a>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Orders</title>
+</head>
+<body>
+
+<h2>All Orders</h2>
+
+<a href="/add">Add New Order</a><br><br>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Date</th>
+        <th>Stock</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Action</th>
+    </tr>
+
+    <tr th:each="o : ${orders}">
+        <td th:text="${o.orderId}"></td>
+        <td th:text="${o.date}"></td>
+        <td th:text="${o.stockQuote}"></td>
+        <td th:text="${o.price}"></td>
+        <td th:text="${o.quantity}"></td>
+
+        <td>
+            <a th:href="@{'/edit/' + ${o.orderId}}">Edit</a>
+            <a th:href="@{'/delete/' + ${o.orderId}}">Delete</a>
+        </td>
+    </tr>
+
+</table>
+
+<br>
+<a href="/">Back</a>
+
+</body>
+</html>
