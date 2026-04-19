@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Appointment</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f4f0ff;
+        }
+
+        .container {
+            width: 40%;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #6a5acd;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0 15px;
+        }
+
+        button {
+            width: 100%;
+            background-color: #6a5acd;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #5a4abc;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            color: #6a5acd;
+        }
+
+        .error {
+            color: red;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Add Appointment</h2>
+
+    <p th:if="${errorMessage}" th:text="${errorMessage}" class="error"></p>
+
+    <form th:action="@{/appointments/save}" method="post" th:object="${appointment}">
+        ID: <input type="text" th:field="*{appointmentId}" />
+        Date: <input type="text" th:field="*{appointmentDate}" placeholder="2026-04-17" />
+        Time: <input type="text" th:field="*{appointmentTime}" placeholder="10:00 AM" />
+        Description: <input type="text" th:field="*{description}" />
+        Patient ID: <input type="text" th:field="*{patientId}" />
+        Doctor ID: <input type="text" th:field="*{doctorId}" />
+
+        <button type="submit">Save</button>
+    </form>
+
+    <a href="/">Back</a>
+</div>
+
+</body>
+</html>

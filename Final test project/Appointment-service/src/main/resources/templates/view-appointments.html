@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>View Appointments</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f4f0ff;
+        }
+
+        h2 {
+            text-align: center;
+            color: #6a5acd;
+        }
+
+        table {
+            width: 85%;
+            margin: auto;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th {
+            background-color: #6a5acd;
+            color: white;
+            padding: 10px;
+        }
+
+        td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2ff;
+        }
+
+        a {
+            color: #6a5acd;
+            text-decoration: none;
+        }
+
+        .top-btn {
+            display: block;
+            width: 190px;
+            margin: 20px auto;
+            text-align: center;
+            background: #6a5acd;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .back-link {
+            text-align: center;
+            display: block;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>All Appointments</h2>
+
+<a class="top-btn" href="/appointments/add">Add New Appointment</a>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Description</th>
+        <th>Patient ID</th>
+        <th>Doctor ID</th>
+        <th>Actions</th>
+    </tr>
+
+    <tr th:each="a : ${appointments}">
+        <td th:text="${a.appointmentId}"></td>
+        <td th:text="${a.appointmentDate}"></td>
+        <td th:text="${a.appointmentTime}"></td>
+        <td th:text="${a.description}"></td>
+        <td th:text="${a.patientId}"></td>
+        <td th:text="${a.doctorId}"></td>
+        <td>
+            <a th:href="@{'/appointments/edit/' + ${a.appointmentId}}">Edit</a> |
+            <a th:href="@{'/appointments/delete/' + ${a.appointmentId}}">Delete</a>
+        </td>
+    </tr>
+</table>
+
+<a class="back-link" href="/">Back</a>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Add Doctor</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f4f0ff;
+        }
+
+        .container {
+            width: 40%;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #6a5acd;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0 15px;
+        }
+
+        button {
+            width: 100%;
+            background-color: #6a5acd;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #5a4abc;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            color: #6a5acd;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Add Doctor</h2>
+
+<form th:action="@{/doctors/save}" method="post" th:object="${doctor}">
+    
+    ID: <input type="text" th:field="*{doctorId}" />
+    Name: <input type="text" th:field="*{doctorName}" />
+    Email: <input type="text" th:field="*{doctorEmail}" />
+    Mobile: <input type="text" th:field="*{doctorMobile}" />
+    Specialization: <input type="text" th:field="*{specialization}" />
+
+    <button type="submit">Save</button>
+</form>
+
+<a href="/">Back</a>
+
+</div>
+
+</body>
+</html>

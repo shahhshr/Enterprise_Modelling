@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Appointment</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f4f0ff;
+        }
+
+        .container {
+            width: 40%;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #6a5acd;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0 15px;
+        }
+
+        button {
+            width: 100%;
+            background-color: #6a5acd;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #5a4abc;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            color: #6a5acd;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Edit Appointment</h2>
+
+    <form th:action="@{/appointments/update}" method="post" th:object="${appointment}">
+        ID: <input type="text" th:field="*{appointmentId}" readonly />
+        Date: <input type="text" th:field="*{appointmentDate}" />
+        Time: <input type="text" th:field="*{appointmentTime}" />
+        Description: <input type="text" th:field="*{description}" />
+        Patient ID: <input type="text" th:field="*{patientId}" />
+        Doctor ID: <input type="text" th:field="*{doctorId}" />
+
+        <button type="submit">Update</button>
+    </form>
+
+    <a href="/appointments/view">Back</a>
+</div>
+
+</body>
+</html>

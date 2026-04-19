@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>View Patients</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f4f0ff;
+        }
+
+        h2 {
+            text-align: center;
+            color: #6a5acd;
+        }
+
+        table {
+            width: 80%;
+            margin: auto;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th {
+            background-color: #6a5acd;
+            color: white;
+            padding: 10px;
+        }
+
+        td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2ff;
+        }
+
+        a {
+            color: #6a5acd;
+            text-decoration: none;
+        }
+
+        .top-btn {
+            display: block;
+            width: 150px;
+            margin: 20px auto;
+            text-align: center;
+            background: #6a5acd;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>All Patients</h2>
+
+<a class="top-btn" href="/patients/add">Add New Patient</a>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Mobile</th>
+        <th>Address</th>
+        <th>Actions</th>
+    </tr>
+
+    <tr th:each="p : ${patients}">
+        <td th:text="${p.patientId}"></td>
+        <td th:text="${p.patientName}"></td>
+        <td th:text="${p.patientEmail}"></td>
+        <td th:text="${p.patientMobile}"></td>
+        <td th:text="${p.patientAddress}"></td>
+        <td>
+            <a th:href="@{'/patients/edit/' + ${p.patientId}}">Edit</a> |
+            <a th:href="@{'/patients/delete/' + ${p.patientId}}">Delete</a>
+        </td>
+    </tr>
+</table>
+
+<br>
+<a style="text-align:center; display:block;" href="/">Back</a>
+
+</body>
+</html>
