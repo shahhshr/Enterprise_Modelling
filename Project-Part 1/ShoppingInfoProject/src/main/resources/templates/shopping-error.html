@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Shopping Error</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffe4e6;
+            text-align: center;
+            padding: 40px;
+        }
+
+        .box {
+            width: 420px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border: 1px solid red;
+            border-radius: 8px;
+        }
+
+        h2 {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>Error</h2>
+    <p th:text="${errorMessage}"></p>
+</div>
+
+</body>
+</html>

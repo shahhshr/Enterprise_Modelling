@@ -1,0 +1,7 @@
+package com.example.shoppinginfoproject.repository;
+
+import com.example.shoppinginfoproject.entity.WebUser;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface WebUserRepository extends JpaRepository<WebUser, Long> {
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Web User List</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #f3e8ff, #ede9fe);
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #6b21a8;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd6fe;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #c084fc;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #faf5ff;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 15px;
+            text-decoration: none;
+            background-color: #9333ea;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 6px;
+        }
+
+        a:hover {
+            background-color: #7e22ce;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>All Web Users</h2>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Password</th>
+            <th>State Of User</th>
+        </tr>
+
+        <tr th:each="u : ${users}">
+            <td th:text="${u.id}"></td>
+            <td th:text="${u.username}"></td>
+            <td th:text="${u.password}"></td>
+            <td th:text="${u.stateOfUser}"></td>
+        </tr>
+    </table>
+
+    <a th:href="@{/}">Add New User</a>
+
+</div>
+
+</body>
+</html>

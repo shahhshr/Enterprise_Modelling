@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Web User Form</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #f3e8ff, #ede9fe);
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .container {
+            width: 420px;
+            margin: 60px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #6b21a8;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            margin-top: 12px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            border: 1px solid #d8b4fe;
+            border-radius: 8px;
+        }
+
+        input[type="submit"] {
+            margin-top: 18px;
+            background-color: #9333ea;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #7e22ce;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 15px;
+            text-decoration: none;
+            color: #6b21a8;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Add Web User</h2>
+
+    <form th:action="@{/saveWebUser}" th:object="${webUser}" method="post">
+
+        <label>Username</label>
+        <input type="text" th:field="*{username}" required>
+
+        <label>Password</label>
+        <input type="password" th:field="*{password}" required>
+
+        <label>State Of User</label>
+        <input type="text" th:field="*{stateOfUser}" required>
+
+        <input type="submit" value="Save">
+
+    </form>
+
+    <a th:href="@{/list}">View All Users</a>
+
+</div>
+
+</body>
+</html>
